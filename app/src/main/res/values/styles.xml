@@ -5,4 +5,8 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="MyActionBar" parent="android:Theme.Material.Light.DarkActionBar">
+        <item name="android:background">#a14e00</item>
+    </style>
+
 </resources>
