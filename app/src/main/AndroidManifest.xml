@@ -11,17 +11,28 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".PickUpActivity"></activity>
+            android:label="Dashboard"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".PickUpActivity"
+            android:label="Pick Up"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".DeliveryActivity"
+            android:label="Delivery"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

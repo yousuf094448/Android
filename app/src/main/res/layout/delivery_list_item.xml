@@ -10,6 +10,7 @@
     android:layout_rowWeight="1"
     app:cardBackgroundColor="@color/white"
     cardCornerRadius="2dp"
+    android:id="@+id/deliveryRow"
     cardElevation="8dp">
 
     <LinearLayout
@@ -22,6 +23,29 @@
             android:layout_gravity="start"
             android:layout_weight="2"
             android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                >
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_order_number"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4dp"
+                        android:inputType="textMultiLine"
+                        android:text="2018050601"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp"/>
+                </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,7 +101,7 @@
                     android:layout_width="19dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/pick_up_icon" />
+                    android:src="@drawable/delivery_icon" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -101,7 +125,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Chef Name"
+                android:text="Customer Name"
                 android:textColor="@android:color/black"
                 android:textSize="15sp"/>
         </LinearLayout>
