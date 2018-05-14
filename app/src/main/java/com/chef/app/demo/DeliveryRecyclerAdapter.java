@@ -2,6 +2,8 @@ package com.chef.app.demo;
 
 import java.util.List;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,13 +13,14 @@ import android.widget.TextView;
 
 public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecyclerAdapter.ViewHolder> {
     private List<String> values;
-
+    private Context context;
     public class ViewHolder extends RecyclerView.ViewHolder {
         public View layout;
 
         public ViewHolder(View v) {
             super(v);
             layout = v.findViewById(R.id.deliveryRow);
+            context = v.getContext();
         }
     }
 
@@ -59,6 +62,8 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
             @Override
             public void onClick(View v) {
                 Log.d(this.getClass().toString(), "onClick: Item"+position);
+                Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
+                context.startActivity(pickUpDetailsIntent);
             }
         });
     }
