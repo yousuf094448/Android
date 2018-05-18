@@ -9,6 +9,7 @@
     android:layout_marginRight=".5dp"
     android:layout_rowWeight="1"
     app:cardBackgroundColor="@color/white"
+    android:id="@+id/pick_up_row_id"
     cardCornerRadius="2dp"
     cardElevation="8dp">
 
@@ -103,6 +104,7 @@
                 android:layout_height="wrap_content"
                 android:text="Chef Name"
                 android:textColor="@android:color/black"
+                android:id="@+id/chef_name"
                 android:textSize="15sp"/>
         </LinearLayout>
     </LinearLayout>

@@ -1,7 +1,9 @@
-package com.chef.app.demo;
+package com.chef.app.demo.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import com.chef.app.demo.R;
 
 public class PickUpDetailsActivity extends Activity {
 

@@ -1,4 +1,4 @@
-package com.chef.app.demo;
+package com.chef.app.demo.Activities;
 
 import java.util.List;
 
@@ -9,7 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.chef.app.demo.R;
 
 public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecyclerAdapter.ViewHolder> {
     private List<String> values;

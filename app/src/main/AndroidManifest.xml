@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chef.app.demo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -20,18 +21,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activities.HomeActivity"
             android:label="Dashboard"
             android:theme="@style/AppTheme"></activity>
         <activity
-            android:name=".PickUpActivity"
+            android:name=".Activities.PickUpActivity"
             android:label="Pick Up"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name=".DeliveryActivity"
+            android:name=".Activities.DeliveryActivity"
             android:label="Delivery"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".PickUpDetailsActivity"></activity>
+        <activity android:name=".Activities.PickUpDetailsActivity"></activity>
     </application>
 
 </manifest>
