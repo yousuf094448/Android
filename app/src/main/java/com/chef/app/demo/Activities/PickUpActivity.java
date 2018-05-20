@@ -6,8 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chef.app.demo.AppManager;
-import com.chef.app.demo.DataRepository.Beans.PickUpBean;
+import com.chef.app.demo.DataRepository.RetroWebServices.Beans.Contact;
 import com.chef.app.demo.DataRepository.DataManager;
+import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.R;
 
 import java.util.List;
@@ -27,12 +28,7 @@ public class PickUpActivity extends Activity {
         layoutManager = new LinearLayoutManager(this);
         pickUpRecyclerView.setLayoutManager(layoutManager);
 
-//        List<String> input = new ArrayList<>();
-//        for (int i = 0; i < 10; i++) {
-//            input.add("Test" + i);
-//        }
-
-        List<PickUpBean> input = DataManager.getInstance().getPickUpList();
+        List<PickUp> input = AppManager.getInstance().getDataManager().getPickUpList();
 
         mAdapter = new PickUpRecyclerAdapter(input);
         pickUpRecyclerView.setAdapter(mAdapter);

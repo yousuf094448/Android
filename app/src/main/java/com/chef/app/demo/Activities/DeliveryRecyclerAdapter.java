@@ -63,8 +63,10 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
             @Override
             public void onClick(View v) {
                 Log.d(this.getClass().toString(), "onClick: Item"+position);
-                Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
-                context.startActivity(pickUpDetailsIntent);
+//                Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
+//                context.startActivity(pickUpDetailsIntent);
+                Intent deliveryDetailsActivity = new Intent(context,DeliveryDetailsActivity.class);
+                context.startActivity(deliveryDetailsActivity);
             }
         });
     }

@@ -10,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.chef.app.demo.DataRepository.Beans.PickUpBean;
+import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.R;
 
 import java.util.List;
 
 public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAdapter.ViewHolder>{
-    private List<PickUpBean> values;
+    private List<PickUp> values;
     private Context context;
     private TextView chefName;
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -30,7 +30,7 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
         }
     }
 
-    public PickUpRecyclerAdapter(List<PickUpBean> pickUpDataset) {
+    public PickUpRecyclerAdapter(List<PickUp> pickUpDataset) {
         values = pickUpDataset;
     }
 
@@ -46,9 +46,8 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
     public void onBindViewHolder(@NonNull PickUpRecyclerAdapter.ViewHolder holder, final int position) {
 
 
-//        holder.layout.
-//        holder.layout.findViewById(R.id.pick_up_row_id).findViewById(R.id.)
         chefName.setText(values.get(position).getName());
+        Log.d(this.getClass().toString(), "onBindViewHolder: name = "+values.get(position).getName() + "position = "+position);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -45,19 +45,21 @@
                         android:textColor="@android:color/white"
                         android:textSize="11sp"
                         android:textStyle="bold"
-                        android:id="@+id/textGrid"/>
+                        android:id="@+id/delivery_man_name"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="01745678901"
                         android:textAlignment="center"
                         android:textColor="@android:color/white"
+                        android:id="@+id/delivery_man_phone"
                         android:textSize="10sp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dhanmondi Zone"
                         android:textAlignment="center"
+                        android:id="@+id/delivery_man_address"
                         android:textColor="@android:color/white"
                         android:textSize="10sp"/>
                 </LinearLayout>

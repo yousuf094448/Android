@@ -1,4 +1,4 @@
-package com.chef.app.demo.DataRepository.Beans;
+package com.chef.app.demo.DataRepository.RetroWebServices.Beans;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

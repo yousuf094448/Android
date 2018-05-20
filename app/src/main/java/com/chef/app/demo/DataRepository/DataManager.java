@@ -1,49 +1,72 @@
 package com.chef.app.demo.DataRepository;
 
-import android.util.Log;
-
-import com.chef.app.demo.AppManager;
-import com.chef.app.demo.DataRepository.Beans.PickUpBean;
-import com.chef.app.demo.DataRepository.Beans.PickUpListBean;
-import com.chef.app.demo.DataRepository.Helper.RetroClient;
-import com.chef.app.demo.DataRepository.WebServices.WebService;
-
+import com.chef.app.demo.Interfaces.DataProvider;
+import com.chef.app.demo.Interfaces.Delivery;
+import com.chef.app.demo.Interfaces.DeliveryManProfile;
+import com.chef.app.demo.Interfaces.PickUp;
+import com.chef.app.demo.Interfaces.ResponseHandler;
+import com.chef.app.demo.Interfaces.WebService;
+import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebService;
 import java.util.List;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
-public class DataManager {
+public class DataManager implements DataProvider{
 
     private static DataManager obj = null;
-    private WebService api;
-    private List<PickUpBean> pickUpList;
-
-    public DataManager(){
-        api = RetroClient.getApiService();
-
-        Call<PickUpListBean> call = api.getMyJSON();
-        call.enqueue(new Callback<PickUpListBean>() {
-            @Override
-            public void onResponse(Call<PickUpListBean> call, Response<PickUpListBean> response) {
-                if (response.isSuccessful()) {
-                    pickUpList = response.body().getEmployee();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<PickUpListBean> call, Throwable t) {
-                Log.d("APP", "onFailure: Retrieving PickUpList failed");
-            }
-        });
-    }
+    private DeliveryManProfile dManProfile;
+    private List<Delivery> mDeliVeryList;
+    private List<PickUp> mPickUpList;
+    private WebService mWebService;
+    private DataProvider mDataProvider;
 
     public static DataManager getInstance(){
-        if(obj == null) obj = new DataManager();
+        if(obj == null) obj = new DataManager(new RetroWebService());
         return  obj;
     }
-    public List<PickUpBean> getPickUpList(){
-        return pickUpList;
+
+    public DataManager(final WebService mWebService){
+        this.mWebService = mWebService;
+    }
+
+    @Override
+    public DeliveryManProfile getUserProfile() {
+        return dManProfile;
+    }
+
+    @Override
+    public List<Delivery> getDeliveryList() {
+        return mDeliVeryList;
+    }
+
+    @Override
+    public List<PickUp> getPickUpList(){
+        return mPickUpList;
+    }
+
+    @Override
+    public void RequestAllData(final ResponseHandler resp) {
+        mWebService.requestProfile(new ResponseHandler() {
+            @Override
+            public void onResponse(Object obj) {
+                dManProfile = (DeliveryManProfile) obj;
+                mWebService.requestPickUpInfo(new ResponseHandler() {
+                    @Override
+                    public void onResponse(Object obj) {
+                        mPickUpList = (List<PickUp>) obj;
+                        resp.onResponse(obj);
+                    }
+
+                    @Override
+                    public void onError(Error error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onError(Error error) {
+
+            }
+        });
     }
 }

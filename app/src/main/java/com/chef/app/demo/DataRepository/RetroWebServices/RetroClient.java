@@ -1,6 +1,6 @@
-package com.chef.app.demo.DataRepository.Helper;
+package com.chef.app.demo.DataRepository.RetroWebServices;
 
-import com.chef.app.demo.DataRepository.WebServices.WebService;
+import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebServiceApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -9,7 +9,7 @@ public class RetroClient {
     /********
      * URLS
      *******/
-    private static final String ROOT_URL = "http://api.androiddeft.com/";
+    private static final String ROOT_URL = "https://api.androidhive.info/";
 
     /**
      * Get Retrofit Instance
@@ -26,7 +26,7 @@ public class RetroClient {
      *
      * @return API Service
      */
-    public static WebService getApiService() {
-        return getRetrofitInstance().create(WebService.class);
+    public static RetroWebServiceApi getApiService() {
+        return getRetrofitInstance().create(RetroWebServiceApi.class);
     }
 }

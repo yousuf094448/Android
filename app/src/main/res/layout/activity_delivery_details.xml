@@ -7,6 +7,7 @@
     android:background="@drawable/app_bg_gradient"
     android:weightSum="6"
     android:orientation="vertical">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -166,21 +167,4 @@
                 android:text="+266 225 225"/>
         </LinearLayout>
     </LinearLayout>
-
-
-    <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/btnSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="16dp"
-        android:text="Complete"
-        android:textColor="@android:color/white"
-        style="button"
-        android:textSize="18sp"
-        custom:pb_colorComplete="#7baf19"
-        custom:pb_colorNormal="@color/colorPrimary"
-        custom:pb_colorPressed="@color/blue_pressed"
-        custom:pb_colorProgress="@color/purple_progress"
-        custom:pb_textComplete="Success"
-        custom:pb_textProgress="Loading" />
 </LinearLayout>
