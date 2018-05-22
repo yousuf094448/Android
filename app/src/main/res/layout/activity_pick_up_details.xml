@@ -7,11 +7,13 @@
     android:background="@drawable/app_bg_gradient"
     android:weightSum="6"
     android:orientation="vertical">
-    <RelativeLayout
+
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_margin="10dp">
         <LinearLayout
-            android:background="@color/colorPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -28,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="Chef Name"
                 android:textStyle="bold"
+                android:id="@+id/chef_name_pick_up_details"
                 android:textSize="21sp"/>
             <TextView
                 android:layout_marginTop="1dp"
@@ -39,148 +42,196 @@
                 android:layout_marginBottom="5dp"
                 android:textSize="21sp"/>
         </LinearLayout>
+    </android.support.v7.widget.CardView>
 
-    </RelativeLayout>
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        app:cardElevation="8dp"
-        android:layout_centerHorizontal="true"
-        android:background="@color/white">
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="16dp"
+        android:weightSum="2">
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            app:cardCornerRadius="2dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="10dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="Pick Up Details"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/pick_up_icon"
+                        android:layout_gravity="center" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:text="Order ID"
+                        android:textAlignment="center"
+                        android:textSize="10dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="right"
+                        android:layout_marginLeft="10dp"
+                        android:text="2018050105"
+                        android:textAlignment="center"
+                        android:textSize="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/border"
+                    android:layout_gravity="left"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/exchange_icon"
+                        android:layout_gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exchanged"
+                            android:textAlignment="center"
+                            android:textSize="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/3"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@drawable/border"
+                    android:layout_gravity="left"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/delivery_icon"
+                        android:layout_gravity="center" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Delivered"
+                            android:textAlignment="center"
+                            android:textSize="10dp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0/7"
+                            android:textAlignment="center"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="2dp"
+            android:layout_weight="2"
+            app:cardElevation="8dp">
+
             <LinearLayout
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Orders"
-                    android:textSize="20sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:text="Order ID"/>
+                </LinearLayout>
             </LinearLayout>
-            <LinearLayout
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Collected"
-                    android:textSize="20sp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
 
-            </LinearLayout>
-            <LinearLayout
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pending"
-                    android:textSize="20sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="10"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:paddingTop="10dp"
-                    android:textColor="@color/black"/>
-
-            </LinearLayout>
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-    <LinearLayout
-        android:layout_width="360dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/pick_up_icon"/>
-            <TextView
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Wiliam@gmail.com"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/pick_up_icon"/>
-            <TextView
-                android:textStyle="bold"
-
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="+266 225 225"/>
-        </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
 
     <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/btnSignIn"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="16dp"
-        android:text="Complete"
-        android:textColor="@android:color/white"
-        style="button"
+        android:padding="10dp"
+        android:gravity="center"
+
+        android:text="Complete Pick Up"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        custom:pb_cornerRadius="10dp"
         android:textSize="18sp"
         custom:pb_colorComplete="#7baf19"
-        custom:pb_colorNormal="@color/colorPrimary"
+        custom:pb_colorNormal="@android:color/white"
         custom:pb_colorPressed="@color/blue_pressed"
         custom:pb_colorProgress="@color/purple_progress"
-        custom:pb_textComplete="Success"
-        custom:pb_textProgress="Loading" />
+        custom:pb_textComplete="Pick Up Done"
+        custom:pb_textProgress="Updating..." />
 </LinearLayout>

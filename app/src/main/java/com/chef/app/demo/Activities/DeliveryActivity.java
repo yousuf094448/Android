@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.chef.app.demo.AppManager;
+import com.chef.app.demo.DataRepository.DataManager;
+import com.chef.app.demo.Interfaces.Delivery;
 import com.chef.app.demo.R;
 
 import java.util.ArrayList;
@@ -27,10 +30,8 @@ public class DeliveryActivity extends Activity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         deliveryRecyclerView.setLayoutManager(layoutManager);
-        List<String> input = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            input.add("Test" + i);
-        }// define an adapter
+        List<Delivery> input = AppManager.getInstance().getDataManager().getDeliveryList();
+
         mAdapter = new DeliveryRecyclerAdapter(input);
         deliveryRecyclerView.setAdapter(mAdapter);
 

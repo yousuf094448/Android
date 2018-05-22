@@ -7,6 +7,8 @@ import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.Interfaces.ResponseHandler;
 import com.chef.app.demo.Interfaces.WebService;
 import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebService;
+import com.chef.app.demo.Model.PickUpInfo;
+
 import java.util.List;
 
 
@@ -53,7 +55,18 @@ public class DataManager implements DataProvider{
                     @Override
                     public void onResponse(Object obj) {
                         mPickUpList = (List<PickUp>) obj;
-                        resp.onResponse(obj);
+                        mWebService.requestDeliveryInfo(new ResponseHandler() {
+                            @Override
+                            public void onResponse(Object obj) {
+                                mDeliVeryList = (List<Delivery>) obj;
+                                resp.onResponse(obj);
+                            }
+
+                            @Override
+                            public void onError(Error error) {
+
+                            }
+                        });
                     }
 
                     @Override

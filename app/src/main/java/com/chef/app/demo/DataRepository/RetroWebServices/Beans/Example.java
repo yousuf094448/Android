@@ -11,7 +11,7 @@ public class Example {
     @Expose
     private List<Contact> contacts = null;
 
-    public List<Contact> getContacts() {
+    public List<Contact>  getContacts() {
         return contacts;
     }
 

@@ -9,12 +9,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.chef.app.demo.Interfaces.Delivery;
 import com.chef.app.demo.R;
 
 public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecyclerAdapter.ViewHolder> {
-    private List<String> values;
+    private List<Delivery> values;
     private Context context;
+    private TextView customerName;
     public class ViewHolder extends RecyclerView.ViewHolder {
         public View layout;
 
@@ -22,12 +25,13 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
             super(v);
             layout = v.findViewById(R.id.deliveryRow);
             context = v.getContext();
+            customerName = v.findViewById(R.id.customer_name);
         }
     }
 
     public void add(int position, String item) {
-        values.add(position, item);
-        notifyItemInserted(position);
+//        values.add(position, item);
+//        notifyItemInserted(position);
     }
 
     public void remove(int position) {
@@ -36,7 +40,7 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public DeliveryRecyclerAdapter(List<String> myDataset) {
+    public DeliveryRecyclerAdapter(List<Delivery> myDataset) {
         values = myDataset;
     }
 
@@ -59,6 +63,7 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        customerName.setText(values.get(position).getName());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

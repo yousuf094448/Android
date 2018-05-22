@@ -1,5 +1,7 @@
 package com.chef.app.demo.Interfaces;
 
+import com.chef.app.demo.Model.PickUpInfo;
+
 import java.util.List;
 
 public interface DataProvider {

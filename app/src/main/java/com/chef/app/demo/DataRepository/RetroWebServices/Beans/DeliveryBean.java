@@ -1,11 +1,10 @@
 package com.chef.app.demo.DataRepository.RetroWebServices.Beans;
 
-import com.chef.app.demo.Interfaces.PickUp;
+import com.chef.app.demo.Interfaces.Delivery;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PickUpBean implements PickUp{
-
+public class DeliveryBean implements Delivery{
     @SerializedName("id")
     @Expose
     private String id;

@@ -26,7 +26,6 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
             super(v);
             layout = v.findViewById(R.id.pick_up_row_id);
             context = v.getContext();
-            chefName = v.findViewById(R.id.chef_name);
         }
     }
 
@@ -44,8 +43,7 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
 
     @Override
     public void onBindViewHolder(@NonNull PickUpRecyclerAdapter.ViewHolder holder, final int position) {
-
-
+        chefName = holder.layout.findViewById(R.id.chef_name);
         chefName.setText(values.get(position).getName());
         Log.d(this.getClass().toString(), "onBindViewHolder: name = "+values.get(position).getName() + "position = "+position);
         holder.layout.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +51,7 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
             public void onClick(View v) {
                 Log.d(this.getClass().toString(), "onClick: Item"+position);
                 Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
+                pickUpDetailsIntent.putExtra("SELECTED_ITEM",position);
                 context.startActivity(pickUpDetailsIntent);
             }
         });

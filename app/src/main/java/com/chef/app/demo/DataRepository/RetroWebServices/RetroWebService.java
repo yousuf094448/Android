@@ -3,7 +3,11 @@ package com.chef.app.demo.DataRepository.RetroWebServices;
 import android.util.Log;
 
 import com.chef.app.demo.DataRepository.RetroWebServices.Beans.Contact;
+import com.chef.app.demo.DataRepository.RetroWebServices.Beans.DeliveryBean;
+import com.chef.app.demo.DataRepository.RetroWebServices.Beans.DeliveryListBean;
 import com.chef.app.demo.DataRepository.RetroWebServices.Beans.Example;
+import com.chef.app.demo.DataRepository.RetroWebServices.Beans.PickUpBean;
+import com.chef.app.demo.DataRepository.RetroWebServices.Beans.PickUpListBean;
 import com.chef.app.demo.Interfaces.Delivery;
 import com.chef.app.demo.Interfaces.DeliveryManProfile;
 import com.chef.app.demo.Interfaces.PickUp;
@@ -25,8 +29,8 @@ public class RetroWebService implements WebService{
     private RetroWebServiceApi api;
     private List<Contact> contactList;
     private DeliveryManProfile mProfile;
-    private List<PickUp> mPickUpList;
-    private List<Delivery> mDeliverList;
+    private List<PickUpBean> mPickUpList;
+    private List<DeliveryBean> mDeliverList;
 
     public RetroWebService(){
         api = RetroClient.getApiService();
@@ -61,30 +65,40 @@ public class RetroWebService implements WebService{
     }
 
     @Override
-    public void requestDeliveryInfo(ResponseHandler response) {
+    public void requestDeliveryInfo(final ResponseHandler response) {
 
+        Call<DeliveryListBean> call = api.getDeliveryList();
+        call.enqueue(new Callback<DeliveryListBean>() {
+            @Override
+            public void onResponse(Call<DeliveryListBean> call, Response<DeliveryListBean> res) {
+                if (res.isSuccessful()) {
+                    mDeliverList = res.body().getDeliveryList();
+                    response.onResponse(mDeliverList);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DeliveryListBean> call, Throwable t) {
+                Log.d("APP", "onFailure: Retrieving PickUpList failed");
+            }
+        });
     }
 
     @Override
     public void requestPickUpInfo(final ResponseHandler response) {
 
-        Call<Example> call = api.getMyContacts();
-        call.enqueue(new Callback<Example>() {
+        Call<PickUpListBean> call = api.getPickUpList();
+        call.enqueue(new Callback<PickUpListBean>() {
             @Override
-            public void onResponse(Call<Example> call, Response<Example> res) {
+            public void onResponse(Call<PickUpListBean> call, Response<PickUpListBean> res) {
                 if (res.isSuccessful()) {
-                    contactList = res.body().getContacts();
-                    for(int i = 0; i<contactList.size(); i++){
-                        Contact c = contactList.get(i);
-                        PickUp pu = new PickUpInfo(c.getName(),c.getPhone().getMobile(),c.getAddress());
-                        mPickUpList.add(pu);
-                    }
+                    mPickUpList = res.body().getPickUpList();
                     response.onResponse(mPickUpList);
                 }
             }
 
             @Override
-            public void onFailure(Call<Example> call, Throwable t) {
+            public void onFailure(Call<PickUpListBean> call, Throwable t) {
                 Log.d("APP", "onFailure: Retrieving PickUpList failed");
             }
         });
