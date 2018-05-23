@@ -97,15 +97,15 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
+                android:layout_gravity="right"
                 android:src="@drawable/default_profile_pic"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:text="Chef Name"
-                android:textColor="@android:color/black"
                 android:id="@+id/chef_name"
-                android:textSize="15sp"/>
+                android:textSize="10dp"/>
         </LinearLayout>
     </LinearLayout>
 

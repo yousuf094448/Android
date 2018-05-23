@@ -25,7 +25,6 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
             super(v);
             layout = v.findViewById(R.id.deliveryRow);
             context = v.getContext();
-            customerName = v.findViewById(R.id.customer_name);
         }
     }
 
@@ -48,35 +47,28 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
     @Override
     public DeliveryRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
                                                                  int viewType) {
-        // create a new view
         LayoutInflater inflater = LayoutInflater.from(
                 parent.getContext());
         View v =
                 inflater.inflate(R.layout.delivery_list_item, parent, false);
-        // set the view's size, margins, paddings and layout parameters
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
+        customerName = holder.layout.findViewById(R.id.customer_name);
         customerName.setText(values.get(position).getName());
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(this.getClass().toString(), "onClick: Item"+position);
-//                Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
-//                context.startActivity(pickUpDetailsIntent);
                 Intent deliveryDetailsActivity = new Intent(context,DeliveryDetailsActivity.class);
                 context.startActivity(deliveryDetailsActivity);
             }
         });
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return values.size();
