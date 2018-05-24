@@ -33,8 +33,12 @@
             android:name=".Activities.DeliveryActivity"
             android:label="Delivery"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.PickUpDetailsActivity" />
-        <activity android:name=".Activities.DeliveryDetailsActivity"></activity>
+        <activity android:name=".Activities.PickUpDetailsActivity"
+            android:label="Pick Up Details"/>
+        <activity android:name=".Activities.DeliveryDetailsActivity"
+            android:label="Delivery Details"/>
+        <activity android:name=".Activities.ExchangeDetailsActivity"
+            android:label="Exchange Details"/>
     </application>
 
 </manifest>

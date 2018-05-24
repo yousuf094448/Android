@@ -16,8 +16,8 @@ package com.chef.app.demo.Activities;
 
 public class HomeActivity extends Activity {
 
-    private CardView pickupView,deliveryView;
-    Intent pickup,delivery;
+    private CardView pickupView,deliveryView, exchangeView;
+    Intent pickup,delivery, exchange;
     TextView name,phone,address;
     DeliveryManProfile profile;
 
@@ -39,6 +39,7 @@ public class HomeActivity extends Activity {
 
         pickup = new  Intent(this, PickUpActivity.class);
         delivery = new Intent(this, DeliveryActivity.class);
+        exchange = new Intent(this, ExchangeDetailsActivity.class);
 
         pickupView = findViewById(R.id.pickUp_CardView);
         pickupView.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +52,14 @@ public class HomeActivity extends Activity {
         deliveryView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {startActivity(delivery);
+            }
+        });
+
+        exchangeView = findViewById(R.id.exchagneCardView);
+        exchangeView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(exchange);
             }
         });
     }
