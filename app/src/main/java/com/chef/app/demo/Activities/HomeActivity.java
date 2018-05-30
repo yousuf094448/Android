@@ -3,21 +3,21 @@ package com.chef.app.demo.Activities;
         import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
+        import android.support.v7.app.AppCompatActivity;
         import android.support.v7.widget.CardView;
         import android.view.View;
         import android.widget.TextView;
 
-        import com.chef.app.demo.AppManager;
         import com.chef.app.demo.Interfaces.DataProvider;
         import com.chef.app.demo.Interfaces.DeliveryManProfile;
         import com.chef.app.demo.R;
 
         import static com.chef.app.demo.AppManager.getInstance;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
 
-    private CardView pickupView,deliveryView, exchangeView;
-    Intent pickup,delivery, exchange;
+    private CardView pickupView,deliveryView, exchangeView, historyView;
+    Intent pickup,delivery, exchange, history;
     TextView name,phone,address;
     DeliveryManProfile profile;
 
@@ -60,6 +60,15 @@ public class HomeActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(exchange);
+            }
+        });
+
+        history = new Intent(this, HistoryActivity.class);
+        historyView = findViewById(R.id.historyCardView);
+        historyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(history);
             }
         });
     }

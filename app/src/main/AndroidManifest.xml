@@ -13,8 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activities.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,18 +26,23 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.PickUpActivity"
+            android:theme="@style/AppTheme"
             android:label="Pick Up"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.DeliveryActivity"
             android:label="Delivery"
             android:screenOrientation="portrait" />
-        <activity android:name=".Activities.PickUpDetailsActivity"
-            android:label="Pick Up Details"/>
-        <activity android:name=".Activities.DeliveryDetailsActivity"
-            android:label="Delivery Details"/>
-        <activity android:name=".Activities.ExchangeDetailsActivity"
+        <activity
+            android:name=".Activities.PickUpDetailsActivity"
+            android:label="Pick Up Details" />
+        <activity
+            android:name=".Activities.DeliveryDetailsActivity"
+            android:label="Delivery Details" />
+        <activity
+            android:name=".Activities.ExchangeDetailsActivity"
             android:label="Exchange Details"/>
+        <activity android:name=".Activities.HistoryActivity"></activity>
     </application>
 
 </manifest>

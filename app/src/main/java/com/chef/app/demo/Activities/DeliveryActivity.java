@@ -2,6 +2,7 @@ package com.chef.app.demo.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -13,7 +14,7 @@ import com.chef.app.demo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DeliveryActivity extends Activity {
+public class DeliveryActivity extends AppCompatActivity {
 
     private RecyclerView deliveryRecyclerView;
     private RecyclerView.Adapter mAdapter;

@@ -2,6 +2,7 @@ package com.chef.app.demo.Activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
@@ -11,7 +12,7 @@ import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.R;
 import com.dd.processbutton.iml.ActionProcessButton;
 
-public class PickUpDetailsActivity extends Activity implements ProgressGenerator.OnCompleteListener{
+public class PickUpDetailsActivity extends AppCompatActivity implements ProgressGenerator.OnCompleteListener{
 
     private PickUp mPickUpItem;
     private TextView chefName;
