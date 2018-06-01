@@ -35,5 +35,7 @@ dependencies {
     implementation('com.github.dmytrodanylyk.android-process-button:library:1.0.4') {
         exclude group: 'com.android.support'
     }
+
+    implementation 'com.android.support:design:27.1.0'
 //    implementation ('br.com.simplepass:loading-button-android:1.14.0') { exclude group: 'com.android.support' }
 }

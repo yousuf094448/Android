@@ -26,9 +26,9 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.PickUpActivity"
-            android:theme="@style/AppTheme"
             android:label="Pick Up"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".Activities.DeliveryActivity"
             android:label="Delivery"
@@ -41,8 +41,9 @@
             android:label="Delivery Details" />
         <activity
             android:name=".Activities.ExchangeDetailsActivity"
-            android:label="Exchange Details"/>
-        <activity android:name=".Activities.HistoryActivity"></activity>
+            android:label="Exchange Details" />
+        <activity android:name=".Activities.HistoryActivity" />
+        <activity android:name=".Activities.LogInActivity"></activity>
     </application>
 
 </manifest>

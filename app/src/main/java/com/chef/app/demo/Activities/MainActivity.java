@@ -17,7 +17,7 @@ import com.chef.app.demo.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Intent homeIntent;
+    private Intent homeIntent, logInIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +26,15 @@ public class MainActivity extends AppCompatActivity {
 
         homeIntent = new Intent(this, HomeActivity.class);
 
+        logInIntent = new Intent(this, LogInActivity.class);
+
         AppManager.getInstance();// Initializing AppManager.
         DataProvider mData = AppManager.getInstance().getDataManager();
 
         mData.RequestAllData(new ResponseHandler() {
             @Override
             public void onResponse(Object obj) {
-                startActivity(homeIntent);
+                startActivity(logInIntent);
                 finish();
             }
 
