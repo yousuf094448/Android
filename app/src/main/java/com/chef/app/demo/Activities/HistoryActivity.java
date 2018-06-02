@@ -1,21 +1,53 @@
 package com.chef.app.demo.Activities;
 
-import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.CalendarView;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.TextView;
 
 import com.chef.app.demo.R;
 
-public class HistoryActivity extends AppCompatActivity {
+import java.util.Calendar;
 
-    CalendarView c;
+public class HistoryActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
+
+    private DatePickerDialog datePickerDialog;
+    private TextView tvDatepicker;
+
+    int year,month,day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        c = findViewById(R.id.calendarView);
-
         setContentView(R.layout.activity_history);
+
+        final Calendar c = Calendar.getInstance();
+        year = c.get(Calendar.YEAR);
+        month = c.get(Calendar.MONTH);
+        day = c.get(Calendar.DAY_OF_MONTH);
+
+        tvDatepicker = findViewById(R.id.tv_date_picker);
+        tvDatepicker.setText(day+"/"+month+"/"+year);
+        tvDatepicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               showDialog();
+            }
+        });
+    }
+
+
+    private void showDialog(){
+        datePickerDialog = new DatePickerDialog(this,this, year, month, day);
+        datePickerDialog.show();
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        this.year = year;
+        this.month = month;
+        this.day = dayOfMonth;
+        tvDatepicker.setText(day+"/"+month+"/"+year);
     }
 }

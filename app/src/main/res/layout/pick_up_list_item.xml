@@ -102,7 +102,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                android:layout_gravity="center"
                 android:text="Chef Name"
                 android:id="@+id/chef_name"
                 android:textSize="10dp"/>
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:layout_marginRight="4dp"
-                    android:text="Call"
+                    android:text="01751676348"
                     android:textSize="10dp"/>
             </LinearLayout>
         </LinearLayout>

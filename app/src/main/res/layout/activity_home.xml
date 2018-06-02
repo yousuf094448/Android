@@ -14,68 +14,71 @@
         android:orientation="vertical"
         android:weightSum="10">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp"
-            android:background="@color/colorPrimary">
+            android:layout_margin="16dp">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical"
-                android:layout_margin="16dp">
-
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/default_profile_pic"
-                    android:id="@+id/profile_pic"/>
-
+                android:background="@color/colorPrimary">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:orientation="vertical">
-                    <TextView
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="16dp">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/default_profile_pic"
+                        android:id="@+id/profile_pic"/>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Delivery Man"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:textSize="11sp"
-                        android:textStyle="bold"
-                        android:id="@+id/delivery_man_name"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="01745678901"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/white"
-                        android:id="@+id/delivery_man_phone"
-                        android:textSize="10sp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Dhanmondi Zone"
-                        android:textAlignment="center"
-                        android:id="@+id/delivery_man_address"
-                        android:textColor="@android:color/white"
-                        android:textSize="10sp"/>
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Delivery Man"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="11sp"
+                            android:textStyle="bold"
+                            android:id="@+id/delivery_man_name"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="01745678901"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:id="@+id/delivery_man_phone"
+                            android:textSize="10sp"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dhanmondi Zone"
+                            android:textAlignment="center"
+                            android:id="@+id/delivery_man_address"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
 
             </LinearLayout>
+        </android.support.v7.widget.CardView>
 
-
-        </LinearLayout>
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
             app:cardCornerRadius="2dp"
             app:cardElevation="8dp">
 
