@@ -1,6 +1,5 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 

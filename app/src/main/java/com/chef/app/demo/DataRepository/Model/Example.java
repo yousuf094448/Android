@@ -1,5 +1,5 @@
 
-package com.chef.app.demo.DataRepository.RetroWebServices.Beans;
+package com.chef.app.demo.DataRepository.Model;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;

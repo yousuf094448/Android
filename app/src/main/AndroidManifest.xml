@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".View.Activities.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,29 +21,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.HomeActivity"
+            android:name=".View.Activities.HomeActivity"
             android:label="Dashboard"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Activities.PickUpActivity"
+            android:name=".View.Activities.PickUpActivity"
             android:label="Pick Up"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Activities.DeliveryActivity"
+            android:name=".View.Activities.DeliveryActivity"
             android:label="Delivery"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Activities.PickUpDetailsActivity"
+            android:name=".View.Activities.PickUpDetailsActivity"
             android:label="Pick Up Details" />
         <activity
-            android:name=".Activities.DeliveryDetailsActivity"
+            android:name=".View.Activities.DeliveryDetailsActivity"
             android:label="Delivery Details" />
         <activity
-            android:name=".Activities.ExchangeDetailsActivity"
+            android:name=".View.Activities.ExchangeDetailsActivity"
             android:label="Exchange Details" />
-        <activity android:name=".Activities.HistoryActivity" />
-        <activity android:name=".Activities.LogInActivity"></activity>
+        <activity android:name=".View.Activities.HistoryActivity" />
+        <activity android:name=".View.Activities.LogInActivity"></activity>
     </application>
 
 </manifest>

@@ -1,10 +1,10 @@
-package com.chef.app.demo.DataRepository.RetroWebServices.Beans;
 
-import com.chef.app.demo.Interfaces.PickUp;
+package com.chef.app.demo.DataRepository.Model;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PickUpBean implements PickUp{
+public class Contact {
 
     @SerializedName("id")
     @Expose
@@ -33,19 +33,8 @@ public class PickUpBean implements PickUp{
         this.id = id;
     }
 
-    @Override
     public String getName() {
         return name;
-    }
-
-    @Override
-    public String getPhoneNumber() {
-        return getPhone().getMobile();
-    }
-
-    @Override
-    public String getAddress() {
-        return address;
     }
 
     public void setName(String name) {
@@ -60,7 +49,9 @@ public class PickUpBean implements PickUp{
         this.email = email;
     }
 
-
+    public String getAddress() {
+        return address;
+    }
 
     public void setAddress(String address) {
         this.address = address;
@@ -81,4 +72,5 @@ public class PickUpBean implements PickUp{
     public void setPhone(Phone phone) {
         this.phone = phone;
     }
+
 }

@@ -1,14 +1,20 @@
-package com.chef.app.demo.Model;
+package com.chef.app.demo.DataRepository.Model;
 
-import com.chef.app.demo.Interfaces.PickUp;
+import com.chef.app.demo.Interfaces.DeliveryManProfile;
+import com.chef.app.demo.Interfaces.ResponseHandler;
 
-public class PickUpInfo implements PickUp {
+public class ProfileInfo implements DeliveryManProfile{
     private String name,number,address;
 
-    public PickUpInfo(String name, String number, String address){
+    public ProfileInfo(String name, String number, String address){
         this.name = name;
         this.number = number;
         this.address = address;
+    }
+
+    @Override
+    public void logIn(ResponseHandler resp) {
+
     }
 
     @Override

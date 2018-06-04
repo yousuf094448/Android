@@ -1,4 +1,4 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,17 +15,45 @@ import com.chef.app.demo.R;
 
 import java.util.List;
 
-public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAdapter.ViewHolder>{
+import com.chef.app.demo.View.Activities.PickUpDetailsActivity;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropAdapter;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropViewHolder;
+
+public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAdapter.ViewHolder> implements DragAndDropAdapter {
     private List<PickUp> values;
     private Context context;
     private TextView chefName;
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+    @Override
+    public void onItemMove(int fromPosition, int toPosition) {
+        PickUp prev = values.remove(fromPosition);
+        values.add(toPosition > fromPosition ? toPosition - 1 : toPosition, prev);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        values.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements DragAndDropViewHolder {
         public View layout;
 
         public ViewHolder(View v) {
             super(v);
             layout = v.findViewById(R.id.pick_up_row_id);
             context = v.getContext();
+        }
+
+        @Override
+        public void onItemSelected() {
+            
+        }
+
+        @Override
+        public void onItemClear() {
+
         }
     }
 

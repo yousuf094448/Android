@@ -7,7 +7,6 @@ import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.Interfaces.ResponseHandler;
 import com.chef.app.demo.Interfaces.WebService;
 import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebService;
-import com.chef.app.demo.Model.PickUpInfo;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
 public class DataManager implements DataProvider{
 
     private static DataManager obj = null;
-    private DeliveryManProfile dManProfile;
+    private DeliveryManProfile deliveryMan;
     private List<Delivery> mDeliVeryList;
     private List<PickUp> mPickUpList;
     private WebService mWebService;
@@ -31,8 +30,8 @@ public class DataManager implements DataProvider{
     }
 
     @Override
-    public DeliveryManProfile getUserProfile() {
-        return dManProfile;
+    public DeliveryManProfile getDeliveryManProfile() {
+        return deliveryMan;
     }
 
     @Override
@@ -50,7 +49,7 @@ public class DataManager implements DataProvider{
         mWebService.requestProfile(new ResponseHandler() {
             @Override
             public void onResponse(Object obj) {
-                dManProfile = (DeliveryManProfile) obj;
+                deliveryMan = (DeliveryManProfile) obj;
                 mWebService.requestPickUpInfo(new ResponseHandler() {
                     @Override
                     public void onResponse(Object obj) {

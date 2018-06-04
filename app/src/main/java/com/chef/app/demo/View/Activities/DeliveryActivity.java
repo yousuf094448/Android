@@ -1,17 +1,18 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
 import com.chef.app.demo.AppManager;
-import com.chef.app.demo.DataRepository.DataManager;
 import com.chef.app.demo.Interfaces.Delivery;
 import com.chef.app.demo.R;
+import com.chef.app.demo.View.Adapters.DeliveryRecyclerAdapter;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropAdapter;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropCallback;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DeliveryActivity extends AppCompatActivity {
@@ -36,6 +37,9 @@ public class DeliveryActivity extends AppCompatActivity {
         mAdapter = new DeliveryRecyclerAdapter(input);
         deliveryRecyclerView.setAdapter(mAdapter);
 
+        ItemTouchHelper.Callback callback = new DragAndDropCallback((DragAndDropAdapter) mAdapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+        touchHelper.attachToRecyclerView(deliveryRecyclerView);
     }
 }
 

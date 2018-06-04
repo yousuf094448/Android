@@ -2,20 +2,16 @@ package com.chef.app.demo.DataRepository.RetroWebServices;
 
 import android.util.Log;
 
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.Contact;
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.DeliveryBean;
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.DeliveryListBean;
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.Example;
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.PickUpBean;
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.PickUpListBean;
-import com.chef.app.demo.Interfaces.Delivery;
+import com.chef.app.demo.DataRepository.Model.Contact;
+import com.chef.app.demo.DataRepository.Model.DeliveryBean;
+import com.chef.app.demo.DataRepository.Model.DeliveryListBean;
+import com.chef.app.demo.DataRepository.Model.Example;
+import com.chef.app.demo.DataRepository.Model.PickUpItem;
+import com.chef.app.demo.DataRepository.Model.PickUpList;
+import com.chef.app.demo.DataRepository.Model.ProfileInfo;
 import com.chef.app.demo.Interfaces.DeliveryManProfile;
-import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.Interfaces.ResponseHandler;
 import com.chef.app.demo.Interfaces.WebService;
-import com.chef.app.demo.Model.PickUpInfo;
-import com.chef.app.demo.Model.PickUpList;
-import com.chef.app.demo.Model.ProfileInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +25,7 @@ public class RetroWebService implements WebService{
     private RetroWebServiceApi api;
     private List<Contact> contactList;
     private DeliveryManProfile mProfile;
-    private List<PickUpBean> mPickUpList;
+    private List<PickUpItem> mPickUpList;
     private List<DeliveryBean> mDeliverList;
 
     public RetroWebService(){
@@ -87,10 +83,10 @@ public class RetroWebService implements WebService{
     @Override
     public void requestPickUpInfo(final ResponseHandler response) {
 
-        Call<PickUpListBean> call = api.getPickUpList();
-        call.enqueue(new Callback<PickUpListBean>() {
+        Call<PickUpList> call = api.getPickUpList();
+        call.enqueue(new Callback<PickUpList>() {
             @Override
-            public void onResponse(Call<PickUpListBean> call, Response<PickUpListBean> res) {
+            public void onResponse(Call<PickUpList> call, Response<PickUpList> res) {
                 if (res.isSuccessful()) {
                     mPickUpList = res.body().getPickUpList();
                     response.onResponse(mPickUpList);
@@ -98,7 +94,7 @@ public class RetroWebService implements WebService{
             }
 
             @Override
-            public void onFailure(Call<PickUpListBean> call, Throwable t) {
+            public void onFailure(Call<PickUpList> call, Throwable t) {
                 Log.d("APP", "onFailure: Retrieving PickUpList failed");
             }
         });

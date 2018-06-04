@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_bg_gradient"
-    tools:context=".Activities.PickUpActivity">
+    tools:context=".View.Activities.PickUpActivity">
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pick_up_recycler_view"
         android:layout_margin="14dp"

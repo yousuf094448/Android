@@ -1,4 +1,4 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Activities;
 
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;

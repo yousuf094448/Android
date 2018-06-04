@@ -1,4 +1,4 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Adapters;
 
 
 import android.os.Handler;

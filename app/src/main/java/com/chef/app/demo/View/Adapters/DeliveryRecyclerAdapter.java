@@ -1,4 +1,4 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Adapters;
 
 import java.util.List;
 
@@ -13,18 +13,45 @@ import android.widget.TextView;
 
 import com.chef.app.demo.Interfaces.Delivery;
 import com.chef.app.demo.R;
+import com.chef.app.demo.View.Activities.DeliveryDetailsActivity;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropAdapter;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropViewHolder;
 
-public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecyclerAdapter.ViewHolder> {
+public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecyclerAdapter.ViewHolder> implements DragAndDropAdapter {
     private List<Delivery> values;
     private Context context;
     private TextView customerName;
-    public class ViewHolder extends RecyclerView.ViewHolder {
+
+    @Override
+    public void onItemMove(int fromPosition, int toPosition) {
+        Delivery prev = values.remove(fromPosition);
+        values.add(toPosition > fromPosition ? toPosition - 1 : toPosition, prev);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
+    @Override
+    public void onItemDismiss(int position) {
+        values.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements DragAndDropViewHolder {
         public View layout;
 
         public ViewHolder(View v) {
             super(v);
             layout = v.findViewById(R.id.deliveryRow);
             context = v.getContext();
+        }
+
+        @Override
+        public void onItemSelected() {
+
+        }
+
+        @Override
+        public void onItemClear() {
+
         }
     }
 

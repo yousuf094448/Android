@@ -1,18 +1,12 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatTextView;
 
 import com.chef.app.demo.AppManager;
-import com.chef.app.demo.DataRepository.DataManager;
-import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebService;
 import com.chef.app.demo.Interfaces.DataProvider;
 import com.chef.app.demo.Interfaces.ResponseHandler;
-import com.chef.app.demo.Interfaces.WebService;
 import com.chef.app.demo.R;
 
 public class MainActivity extends AppCompatActivity {

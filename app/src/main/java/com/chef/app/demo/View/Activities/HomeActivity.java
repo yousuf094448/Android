@@ -1,6 +1,5 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Activities;
 
-        import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
@@ -31,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
         address = findViewById(R.id.delivery_man_address);
 
         DataProvider mData = getInstance().getDataManager();
-        profile = mData.getUserProfile();
+        profile = mData.getDeliveryManProfile();
         name.setText(profile.getName());
         phone.setText(profile.getPhoneNumber());
         address.setText(profile.getAddress());

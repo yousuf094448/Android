@@ -1,16 +1,17 @@
-package com.chef.app.demo.Activities;
+package com.chef.app.demo.View.Activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 
+import com.chef.app.demo.View.DragAndDrop.DragAndDropAdapter;
+import com.chef.app.demo.View.DragAndDrop.DragAndDropCallback;
 import com.chef.app.demo.AppManager;
-import com.chef.app.demo.DataRepository.RetroWebServices.Beans.Contact;
-import com.chef.app.demo.DataRepository.DataManager;
 import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.R;
+import com.chef.app.demo.View.Adapters.PickUpRecyclerAdapter;
 
 import java.util.List;
 
@@ -33,5 +34,10 @@ public class PickUpActivity extends AppCompatActivity {
 
         mAdapter = new PickUpRecyclerAdapter(input);
         pickUpRecyclerView.setAdapter(mAdapter);
+
+        ItemTouchHelper.Callback callback =
+                new DragAndDropCallback((DragAndDropAdapter) mAdapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+        touchHelper.attachToRecyclerView(pickUpRecyclerView);
     }
 }
