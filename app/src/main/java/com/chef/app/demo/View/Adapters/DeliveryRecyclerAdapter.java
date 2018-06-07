@@ -38,7 +38,7 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
     public class ViewHolder extends RecyclerView.ViewHolder implements DragAndDropViewHolder {
         public View layout;
 
-        public ViewHolder(View v) {
+        ViewHolder(View v) {
             super(v);
             layout = v.findViewById(R.id.deliveryRow);
             context = v.getContext();
@@ -89,8 +89,8 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(this.getClass().toString(), "onClick: Item"+position);
-                Intent deliveryDetailsActivity = new Intent(context,DeliveryDetailsActivity.class);
+                Log.d(this.getClass().toString(), "onClick: Item" + position);
+                Intent deliveryDetailsActivity = new Intent(context, DeliveryDetailsActivity.class);
                 context.startActivity(deliveryDetailsActivity);
             }
         });

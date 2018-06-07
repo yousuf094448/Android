@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mData.RequestAllData(new ResponseHandler() {
             @Override
             public void onResponse(Object obj) {
-                startActivity(logInIntent);
+                startActivity(homeIntent);
                 finish();
             }
 
