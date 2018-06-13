@@ -55,15 +55,15 @@ public class DeliveryRecyclerAdapter extends RecyclerView.Adapter<DeliveryRecycl
         }
     }
 
-    public void add(int position, String item) {
+//    public void add(int position, String item) {
 //        values.add(position, item);
 //        notifyItemInserted(position);
-    }
+//    }
 
-    public void remove(int position) {
-        values.remove(position);
-        notifyItemRemoved(position);
-    }
+//    public void remove(int position) {
+//        values.remove(position);
+//        notifyItemRemoved(position);
+//    }
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public DeliveryRecyclerAdapter(List<Delivery> myDataset) {

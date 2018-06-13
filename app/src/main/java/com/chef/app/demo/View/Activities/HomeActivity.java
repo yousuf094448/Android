@@ -6,6 +6,7 @@ package com.chef.app.demo.View.Activities;
         import android.support.v7.widget.CardView;
         import android.view.View;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import com.chef.app.demo.Interfaces.DataProvider;
         import com.chef.app.demo.Interfaces.DeliveryManProfile;
@@ -43,14 +44,17 @@ public class HomeActivity extends AppCompatActivity {
         pickupView = findViewById(R.id.pickUp_CardView);
         pickupView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {startActivity(pickup);
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "Clicked Pickup", Toast.LENGTH_SHORT).show();
+                startActivity(pickup);
             }
         });
 
         deliveryView = findViewById(R.id.deliveryCardView);
         deliveryView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {startActivity(delivery);
+            public void onClick(View v) {
+                startActivity(delivery);
             }
         });
 

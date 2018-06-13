@@ -9,20 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.chef.app.demo.Interfaces.PickUp;
 import com.chef.app.demo.R;
-
-import java.util.List;
-
 import com.chef.app.demo.View.Activities.PickUpDetailsActivity;
 import com.chef.app.demo.View.DragAndDrop.DragAndDropAdapter;
 import com.chef.app.demo.View.DragAndDrop.DragAndDropViewHolder;
+
+import java.util.List;
 
 public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAdapter.ViewHolder> implements DragAndDropAdapter {
     private List<PickUp> values;
     private Context context;
     private TextView chefName;
+    private LinearLayout chefPfofile;
 
     @Override
     public void onItemMove(int fromPosition, int toPosition) {
@@ -81,6 +83,14 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
                 Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
                 pickUpDetailsIntent.putExtra("SELECTED_ITEM",position);
                 context.startActivity(pickUpDetailsIntent);
+            }
+        });
+
+        chefPfofile = holder.layout.findViewById(R.id.pick_up_chef_profile);
+        chefPfofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Profile Clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }

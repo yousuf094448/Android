@@ -336,6 +336,7 @@
                     android:layout_marginLeft=".5dp"
                     android:layout_marginRight=".5dp"
                     android:layout_rowWeight="1"
+                    android:foreground="?android:attr/selectableItemBackground"
                     app:cardCornerRadius="2dp"
                     app:cardElevation="8dp"
                     android:id="@+id/pickUp_CardView">

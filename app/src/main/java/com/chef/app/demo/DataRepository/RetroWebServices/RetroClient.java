@@ -9,7 +9,8 @@ public class RetroClient {
     /********
      * URLS
      *******/
-    private static final String ROOT_URL = "https://api.androidhive.info/";
+//    private static final String ROOT_URL = "https://api.androidhive.info/";
+    private static final String ROOT_URL = "http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/v1/";
 
     /**
      * Get Retrofit Instance

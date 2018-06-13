@@ -3,6 +3,7 @@ package com.chef.app.demo.View.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.chef.app.demo.AppManager;
 import com.chef.app.demo.Interfaces.DataProvider;
@@ -23,20 +24,26 @@ public class MainActivity extends AppCompatActivity {
         logInIntent = new Intent(this, LogInActivity.class);
 
         AppManager.getInstance();// Initializing AppManager.
-        DataProvider mData = AppManager.getInstance().getDataManager();
+        final DataProvider mData = AppManager.getInstance().getDataManager();
 
-        mData.RequestAllData(new ResponseHandler() {
-            @Override
-            public void onResponse(Object obj) {
-                startActivity(homeIntent);
-                finish();
-            }
+        if(AppManager.getInstance().isLoggedIn()){
+            mData.requestAllData(new ResponseHandler() {
+                @Override
+                public void onResponse(Object obj) {
+                    startActivity(homeIntent);
+                    fileList();
+                }
 
-            @Override
-            public void onError(Error error) {
+                @Override
+                public void onError(Error error) {
 
-            }
-        });
+                }
+            });
+        }else {
+            startActivity(logInIntent);
+            finish();
+        }
+
 
     }
 }

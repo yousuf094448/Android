@@ -6,6 +6,7 @@ import com.chef.app.demo.DataRepository.DataManager;
 import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebService;
 import com.chef.app.demo.DataRepository.RetroWebServices.RetroWebServiceApi;
 import com.chef.app.demo.DataRepository.Model.PickUpItem;
+import com.chef.app.demo.DataRepository.TestDataProvider;
 import com.chef.app.demo.Interfaces.DataProvider;
 
 import java.util.List;
@@ -16,10 +17,12 @@ public class AppManager {
     private static DataProvider dataManager;
     private RetroWebServiceApi api;
     private List<PickUpItem> pickUpList;
+    private boolean isLoggedIn = false;
 
     private AppManager(){
         Log.d("APP", "AppManager: Initialization");
-        dataManager = new DataManager(new RetroWebService());
+//        dataManager = DataManager.getInstance();
+        dataManager = TestDataProvider.getInstance();
     }
     public static AppManager getInstance(){
         if(obj == null) obj = new AppManager();
@@ -30,4 +33,7 @@ public class AppManager {
         return dataManager;
     }
 
+    public boolean isLoggedIn() {
+        return isLoggedIn;
+    }
 }

@@ -14,10 +14,6 @@ public class ExchangeListItem implements Exchange{
 
     ExchangeListItem(){
         deliveryManProfile = new DeliveryManProfile() {
-            @Override
-            public void logIn(ResponseHandler resp) {
-
-            }
 
             @Override
             public String getName() {

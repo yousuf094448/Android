@@ -41,11 +41,12 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/login_email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/icons8_user_24"
                     android:singleLine="true"
-                    android:hint="User Name"
+                    android:hint="@string/email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
@@ -54,12 +55,13 @@
                 android:layout_height="wrap_content">
 
                 <EditText
+                    android:id="@+id/login_password"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:singleLine="true"
                     android:drawableLeft="@drawable/icons8_lock_24"
-                    android:hint="Password"
+                    android:hint="@string/password"
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 

@@ -13,11 +13,6 @@ public class ProfileInfo implements DeliveryManProfile{
     }
 
     @Override
-    public void logIn(ResponseHandler resp) {
-
-    }
-
-    @Override
     public String getName() {
         return name;
     }

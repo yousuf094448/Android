@@ -1,5 +1,7 @@
 package com.chef.app.demo.DataRepository;
 
+import android.util.Log;
+
 import com.chef.app.demo.Interfaces.DataProvider;
 import com.chef.app.demo.Interfaces.Delivery;
 import com.chef.app.demo.Interfaces.DeliveryManProfile;
@@ -25,7 +27,7 @@ public class DataManager implements DataProvider{
         return  obj;
     }
 
-    public DataManager(final WebService mWebService){
+    private DataManager(final WebService mWebService){
         this.mWebService = mWebService;
     }
 
@@ -45,7 +47,7 @@ public class DataManager implements DataProvider{
     }
 
     @Override
-    public void RequestAllData(final ResponseHandler resp) {
+    public void requestAllData(final ResponseHandler resp) {
         mWebService.requestProfile(new ResponseHandler() {
             @Override
             public void onResponse(Object obj) {
@@ -80,5 +82,21 @@ public class DataManager implements DataProvider{
 
             }
         });
+    }
+
+    @Override
+    public void requestLogIn(final ResponseHandler resp, String email, String password) {
+        mWebService.requestLogIn(new ResponseHandler() {
+            @Override
+            public void onResponse(Object obj) {
+                Log.d("LOGIN", "onResponse: log in response 1");
+                resp.onResponse(null);
+            }
+
+            @Override
+            public void onError(Error error) {
+
+            }
+        }, email, password);
     }
 }

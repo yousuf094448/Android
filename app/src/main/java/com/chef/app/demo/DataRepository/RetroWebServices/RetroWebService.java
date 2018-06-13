@@ -2,6 +2,7 @@ package com.chef.app.demo.DataRepository.RetroWebServices;
 
 import android.util.Log;
 
+import com.chef.app.demo.DataRepository.LogIn.LogIn;
 import com.chef.app.demo.DataRepository.Model.Contact;
 import com.chef.app.demo.DataRepository.Model.DeliveryBean;
 import com.chef.app.demo.DataRepository.Model.DeliveryListBean;
@@ -99,5 +100,25 @@ public class RetroWebService implements WebService{
             }
         });
 
+    }
+
+    @Override
+    public void requestLogIn(final ResponseHandler resp, String email, String password) {
+        Call<LogIn> call = api.logIn(email,password);
+        call.enqueue(new Callback<LogIn>() {
+            @Override
+            public void onResponse(Call<LogIn> call, Response<LogIn> response) {
+                Log.d("LOGIN", "onResponse: Log in successful");
+                resp.onResponse(response);
+                if(response.isSuccessful()){
+//                    response.body()
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LogIn> call, Throwable t) {
+                Log.d("LOGIN", "onResponse: Log in Failed");
+            }
+        });
     }
 }
