@@ -8,18 +8,18 @@ import android.view.LayoutInflater;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
 
+import com.chef.app.demo.Interfaces.Exchange;
 import com.chef.app.demo.R;
-import com.chef.app.demo.View.Activities.ExchangeItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExchangePacketsListAdapter extends ArrayAdapter<ExchangeItem> {
+public class ExchangePacketsListAdapter extends ArrayAdapter<Exchange.ExchangeItem> {
 
     private int resoource;
     private Context mContext;
-    private List<ExchangeItem> exchangeListItems = new ArrayList<>();
-    public ExchangePacketsListAdapter(@NonNull Context context, int resource, List<ExchangeItem> exchangeListItems) {
+    private List<Exchange.ExchangeItem> exchangeListItems = new ArrayList<>();
+    public ExchangePacketsListAdapter(@NonNull Context context, int resource, List<Exchange.ExchangeItem> exchangeListItems) {
         super(context, resource, exchangeListItems);
         this.resoource = resource;
         mContext = context;
@@ -36,10 +36,10 @@ public class ExchangePacketsListAdapter extends ArrayAdapter<ExchangeItem> {
 //        ExchangeListItem currentItem = exchangeListItems.get(position);
 
         TextView tvLeft = (TextView) listItem.findViewById(R.id.collection_chef_name);
-        tvLeft.setText("Chef Habiba");
+        tvLeft.setText(exchangeListItems.get(position).getChefName());
 
         TextView rvRight = (TextView) listItem.findViewById(R.id.collection_packet_count);
-        rvRight.setText("4");
+        rvRight.setText(exchangeListItems.get(position).getPacketCount());
 
         return listItem;
     }

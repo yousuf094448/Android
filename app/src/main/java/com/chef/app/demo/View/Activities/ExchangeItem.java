@@ -1,15 +1,15 @@
 package com.chef.app.demo.View.Activities;
 
 public class ExchangeItem {
-    ExchangeItem(){
+    public ExchangeItem(){
         name = "Chef Name";
         count = "2";
     }
     private String name, count;
-    String getChefName(){
+    public String getChefName(){
         return name;
     }
-    String getPacketCount(){
+    public String getPacketCount(){
         return count;
     }
 }

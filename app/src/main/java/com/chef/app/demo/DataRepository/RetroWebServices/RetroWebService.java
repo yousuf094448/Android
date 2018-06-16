@@ -4,11 +4,11 @@ import android.util.Log;
 
 import com.chef.app.demo.DataRepository.LogIn.LogIn;
 import com.chef.app.demo.DataRepository.Model.Contact;
-import com.chef.app.demo.DataRepository.Model.DeliveryBean;
-import com.chef.app.demo.DataRepository.Model.DeliveryListBean;
 import com.chef.app.demo.DataRepository.Model.Example;
-import com.chef.app.demo.DataRepository.Model.PickUpItem;
-import com.chef.app.demo.DataRepository.Model.PickUpList;
+import com.chef.app.demo.DataRepository.RetroWebServices.Delivery.RetroDeliveryListItem;
+import com.chef.app.demo.DataRepository.RetroWebServices.Delivery.RetroDelivery;
+import com.chef.app.demo.DataRepository.RetroWebServices.PickUp.RetroPickUpListItem;
+import com.chef.app.demo.DataRepository.RetroWebServices.PickUp.RetroPickUp;
 import com.chef.app.demo.DataRepository.Model.ProfileInfo;
 import com.chef.app.demo.Interfaces.DeliveryManProfile;
 import com.chef.app.demo.Interfaces.ResponseHandler;
@@ -26,8 +26,9 @@ public class RetroWebService implements WebService{
     private RetroWebServiceApi api;
     private List<Contact> contactList;
     private DeliveryManProfile mProfile;
-    private List<PickUpItem> mPickUpList;
-    private List<DeliveryBean> mDeliverList;
+    private List<RetroPickUpListItem> mPickUpList;
+    private List<RetroDeliveryListItem> mDeliverList;
+    private DeliveryManProfile profile;
 
     public RetroWebService(){
         api = RetroClient.getApiService();
@@ -64,18 +65,18 @@ public class RetroWebService implements WebService{
     @Override
     public void requestDeliveryInfo(final ResponseHandler response) {
 
-        Call<DeliveryListBean> call = api.getDeliveryList();
-        call.enqueue(new Callback<DeliveryListBean>() {
+        Call<RetroDelivery> call = api.getDeliveryList("http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/GetDeliveryListByDeliveryMan/5/2018-06-14/1");
+        call.enqueue(new Callback<RetroDelivery>() {
             @Override
-            public void onResponse(Call<DeliveryListBean> call, Response<DeliveryListBean> res) {
+            public void onResponse(Call<RetroDelivery> call, Response<RetroDelivery> res) {
                 if (res.isSuccessful()) {
-                    mDeliverList = res.body().getDeliveryList();
+                    mDeliverList = res.body().getData();
                     response.onResponse(mDeliverList);
                 }
             }
 
             @Override
-            public void onFailure(Call<DeliveryListBean> call, Throwable t) {
+            public void onFailure(Call<RetroDelivery> call, Throwable t) {
                 Log.d("APP", "onFailure: Retrieving PickUpList failed");
             }
         });
@@ -84,18 +85,22 @@ public class RetroWebService implements WebService{
     @Override
     public void requestPickUpInfo(final ResponseHandler response) {
 
-        Call<PickUpList> call = api.getPickUpList();
-        call.enqueue(new Callback<PickUpList>() {
+//        Call<RetroPickUp> call = api.getPickUpList("5","2018-06-14", "1");
+        Call<RetroPickUp> call = api.getPickUpList2("http://cookantsapplicationdev-env-1.us-east-1.elasticbeanstalk.com/api/Delivery/GetPickUpListByDeliveryMan/5/2018-06-14/1");
+        call.enqueue(new Callback<RetroPickUp>() {
             @Override
-            public void onResponse(Call<PickUpList> call, Response<PickUpList> res) {
+            public void onResponse(Call<RetroPickUp> call, Response<RetroPickUp> res) {
+                Log.d("PICKUPTEST", "onResponse: resp = "+res.isSuccessful());
+                Log.d("PICKUPTEST", "onResponse: resp = "+res.message());
+//                Log.d("PICKUPTEST", "onResponse: resp = "+res.body().getStatus());
                 if (res.isSuccessful()) {
-                    mPickUpList = res.body().getPickUpList();
+                    mPickUpList = res.body().getData();
                     response.onResponse(mPickUpList);
                 }
             }
 
             @Override
-            public void onFailure(Call<PickUpList> call, Throwable t) {
+            public void onFailure(Call<RetroPickUp> call, Throwable t) {
                 Log.d("APP", "onFailure: Retrieving PickUpList failed");
             }
         });
@@ -109,9 +114,9 @@ public class RetroWebService implements WebService{
             @Override
             public void onResponse(Call<LogIn> call, Response<LogIn> response) {
                 Log.d("LOGIN", "onResponse: Log in successful");
-                resp.onResponse(response);
                 if(response.isSuccessful()){
-//                    response.body()
+                    profile = response.body().getProfile();
+                    resp.onResponse(profile);
                 }
             }
 

@@ -17,12 +17,12 @@ public class AppManager {
     private static DataProvider dataManager;
     private RetroWebServiceApi api;
     private List<PickUpItem> pickUpList;
-    private boolean isLoggedIn = false;
+    private boolean isLoggedIn = true;
 
     private AppManager(){
         Log.d("APP", "AppManager: Initialization");
-//        dataManager = DataManager.getInstance();
-        dataManager = TestDataProvider.getInstance();
+        dataManager = DataManager.getInstance();
+//        dataManager = TestDataProvider.getInstance();
     }
     public static AppManager getInstance(){
         if(obj == null) obj = new AppManager();

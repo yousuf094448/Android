@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:layout_marginBottom="5dp"
+    android:id="@+id/exchange_row">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -28,11 +30,13 @@
                     android:orientation="vertical"
                     android:layout_margin="10dp">
                     <TextView
+                        android:id="@+id/exchange_delivery_man"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
                         android:text="Delivery Man"/>
                     <TextView
+                        android:id="@+id/exchange_delivery_man_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
@@ -47,57 +51,7 @@
                 android:background="@drawable/border"
                 android:layout_gravity="left"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
-
-                <!--Collection List-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Collection List"/>
-                    <ListView
-                        android:id="@+id/collection_list"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </ListView>
-                </LinearLayout>
-
-                <!--Vertical Divider-->
-                <LinearLayout
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/vertical_border">
-                </LinearLayout>
-
-                <!--HandOverList-->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Hanover List"/>
-                    <ListView
-                        android:id="@+id/handover_list"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-                    </ListView>
-                </LinearLayout>
-
-            </LinearLayout>
+            <include layout="@layout/exchange_list_item_2"/>
         </LinearLayout>
 
 

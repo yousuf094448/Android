@@ -2,6 +2,7 @@ package com.chef.app.demo.View.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -23,8 +24,63 @@ import java.util.List;
 public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAdapter.ViewHolder> implements DragAndDropAdapter {
     private List<PickUp> values;
     private Context context;
-    private TextView chefName;
+    private TextView chefName, chefAddress, pickUpCount, pickUpStatus, chefPhone;
     private LinearLayout chefPfofile;
+
+
+    public PickUpRecyclerAdapter(List<PickUp> pickUpDataset) {
+        values = pickUpDataset;
+    }
+
+    @NonNull
+    @Override
+    public PickUpRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View v = inflater.inflate(R.layout.pick_up_list_item, parent, false);
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull PickUpRecyclerAdapter.ViewHolder holder, final int position) {
+        chefName = holder.layout.findViewById(R.id.chef_name);
+        chefAddress = holder.layout.findViewById(R.id.pick_up_address);
+        pickUpCount = holder.layout.findViewById(R.id.pick_up_count);
+        pickUpStatus = holder.layout.findViewById(R.id.pick_up_status);
+        chefPhone = holder.layout.findViewById(R.id.pick_up_phone);
+
+
+        chefName.setText(values.get(position).getName());
+        chefAddress.setText(values.get(position).getAddress());
+        chefPhone.setText(values.get(position).getPhoneNumber());
+        pickUpCount.setText(values.get(position).getNumberOfPackets());
+        pickUpStatus.setText(values.get(position).getPickUpStatus());
+
+        Log.d(this.getClass().toString(), "onBindViewHolder: name = "+values.get(position).getName() + "position = "+position);
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(this.getClass().toString(), "onClick: Item"+position);
+                Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
+                pickUpDetailsIntent.putExtra("SELECTED_ITEM",position);
+                context.startActivity(pickUpDetailsIntent);
+            }
+        });
+
+        chefPfofile = holder.layout.findViewById(R.id.pick_up_chef_profile);
+        chefPfofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", values.get(position).getPhoneNumber(),null)));
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return values.size();
+    }
+
 
     @Override
     public void onItemMove(int fromPosition, int toPosition) {
@@ -59,44 +115,4 @@ public class PickUpRecyclerAdapter extends RecyclerView.Adapter<PickUpRecyclerAd
         }
     }
 
-    public PickUpRecyclerAdapter(List<PickUp> pickUpDataset) {
-        values = pickUpDataset;
-    }
-
-    @Override
-    public PickUpRecyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View v = inflater.inflate(R.layout.pick_up_list_item, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull PickUpRecyclerAdapter.ViewHolder holder, final int position) {
-        chefName = holder.layout.findViewById(R.id.chef_name);
-        chefName.setText(values.get(position).getName());
-        Log.d(this.getClass().toString(), "onBindViewHolder: name = "+values.get(position).getName() + "position = "+position);
-        holder.layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(this.getClass().toString(), "onClick: Item"+position);
-                Intent pickUpDetailsIntent = new Intent(context,PickUpDetailsActivity.class);
-                pickUpDetailsIntent.putExtra("SELECTED_ITEM",position);
-                context.startActivity(pickUpDetailsIntent);
-            }
-        });
-
-        chefPfofile = holder.layout.findViewById(R.id.pick_up_chef_profile);
-        chefPfofile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "Profile Clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return values.size();
-    }
 }

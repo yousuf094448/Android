@@ -37,4 +37,7 @@ dependencies {
     }
     // Date picker
     implementation 'com.android.support:design:27.1.1'
+
+    //ProgressBar
+    implementation 'com.github.ybq:Android-SpinKit:1.1.0'
 }

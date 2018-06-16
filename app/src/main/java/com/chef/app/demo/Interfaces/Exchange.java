@@ -7,7 +7,7 @@ public interface Exchange {
     List<ExchangeItem> getColletionList();
     List<ExchangeItem> getHandOverList();
 
-    interface ExchangeItem{
+    public interface ExchangeItem{
         String getChefName();
         String getPacketCount();
     }

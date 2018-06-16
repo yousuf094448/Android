@@ -60,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
                     <TextView
+                        android:id="@+id/customer_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
@@ -82,6 +83,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/ic_order_count" />
                 <TextView
+                    android:id="@+id/delivery_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
@@ -103,6 +105,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/delivery_icon" />
                 <TextView
+                    android:id="@+id/delivery_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
@@ -112,6 +115,7 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/customer_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -145,6 +149,7 @@
                     android:layout_marginLeft="2dp"
                     android:src="@drawable/ic_dial" />
                 <TextView
+                    android:id="@+id/customer_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"

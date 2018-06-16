@@ -47,6 +47,16 @@ public class DeliveryBean implements Delivery{
         return address;
     }
 
+    @Override
+    public String getDeliverySttus() {
+        return null;
+    }
+
+    @Override
+    public String getDeliveryCount() {
+        return null;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
