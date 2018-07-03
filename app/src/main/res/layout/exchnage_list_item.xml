@@ -12,35 +12,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
+                android:id="@+id/exchange_item_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp">
+
                     <ImageView
                         android:layout_width="50dp"
                         android:layout_height="50dp"
-                        android:src="@drawable/default_profile_pic"/>
+                        android:src="@drawable/default_profile_pic" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/exchange_delivery_man"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15sp"
-                        android:text="Delivery Man"/>
+                        android:text="Delivery Man"
+                        android:textSize="15sp" />
+
                     <TextView
                         android:id="@+id/exchange_delivery_man_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="017612345"/>
+                        android:text="017612345"
+                        android:textSize="15dp" />
                 </LinearLayout>
             </LinearLayout>
 

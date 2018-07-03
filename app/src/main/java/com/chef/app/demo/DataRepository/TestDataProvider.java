@@ -97,7 +97,183 @@ public class TestDataProvider implements DataProvider{
 
 
         //ExchangeList
-        Exchange exchange = new Exchange() {
+        Exchange exchange0 = new Exchange() {
+            @Override
+            public DeliveryManProfile getCoDeliveryManProfile() {
+                return null;
+            }
+
+            @Override
+            public List<ExchangeItem> getColletionList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<1; i++) eil.add(ei);
+                return eil;
+            }
+
+            @Override
+            public List<ExchangeItem> getHandOverList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<1; i++) eil.add(ei);
+                return eil;
+            }
+        };
+        Exchange exchange1 = new Exchange() {
+            @Override
+            public DeliveryManProfile getCoDeliveryManProfile() {
+                return null;
+            }
+
+            @Override
+            public List<ExchangeItem> getColletionList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<2; i++) eil.add(ei);
+                return eil;
+            }
+
+            @Override
+            public List<ExchangeItem> getHandOverList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<2; i++) eil.add(ei);
+                return eil;
+            }
+        };
+        Exchange exchange2 = new Exchange() {
+            @Override
+            public DeliveryManProfile getCoDeliveryManProfile() {
+                return null;
+            }
+
+            @Override
+            public List<ExchangeItem> getColletionList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<5; i++) eil.add(ei);
+                return eil;
+            }
+
+            @Override
+            public List<ExchangeItem> getHandOverList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<3; i++) eil.add(ei);
+                return eil;
+            }
+        };
+        Exchange exchange3 = new Exchange() {
+            @Override
+            public DeliveryManProfile getCoDeliveryManProfile() {
+                return null;
+            }
+
+            @Override
+            public List<ExchangeItem> getColletionList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<3; i++) eil.add(ei);
+                return eil;
+            }
+
+            @Override
+            public List<ExchangeItem> getHandOverList() {
+                ExchangeItem ei = new ExchangeItem() {
+                    @Override
+                    public String getChefName() {
+                        return "Test 1";
+                    }
+
+                    @Override
+                    public String getPacketCount() {
+                        return "2";
+                    }
+                };
+
+                List<ExchangeItem> eil = new ArrayList<>();
+                for(int i = 0; i<5; i++) eil.add(ei);
+                return eil;
+            }
+        };
+        Exchange exchange4 = new Exchange() {
             @Override
             public DeliveryManProfile getCoDeliveryManProfile() {
                 return null;
@@ -142,8 +318,13 @@ public class TestDataProvider implements DataProvider{
             }
         };
         mExchangeList = new ArrayList<>();
-        for(int i = 0; i<7; i++) mExchangeList.add(exchange);
+//        for(int i = 0; i<7; i++) mExchangeList.add(exchange);
 
+        mExchangeList.add(exchange0);
+        mExchangeList.add(exchange1);
+        mExchangeList.add(exchange2);
+        mExchangeList.add(exchange3);
+        mExchangeList.add(exchange4);
     }
 
     @Override
@@ -167,8 +348,30 @@ public class TestDataProvider implements DataProvider{
     }
 
     @Override
+    public void completePickUp(String pickUpID, final ResponseHandler resp) {
+
+        mWebService.requestDeliveryInfo(new ResponseHandler() {
+            @Override
+            public void onResponse(Object obj) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                resp.onResponse(obj);
+            }
+
+            @Override
+            public void onError(Exception error) {
+
+            }
+        });
+    }
+
+    @Override
     public void requestAllData(final ResponseHandler resp) {
 
+        resp.onResponse(obj);
 //        mWebService.requestPickUpInfo(new ResponseHandler() {
 //            @Override
 //            public void onResponse(Object obj) {
@@ -186,17 +389,18 @@ public class TestDataProvider implements DataProvider{
     @Override
     public void requestLogIn(final ResponseHandler resp, String email, String password) {
 
-        mWebService.requestLogIn(new ResponseHandler() {
-            @Override
-            public void onResponse(Object obj) {
-                deliveryMan = (DeliveryManProfile) obj;
-                resp.onResponse(obj);
-            }
-
-            @Override
-            public void onError(Error error) {
-
-            }
-        }, email, password);
+        resp.onResponse(obj);
+//        mWebService.requestLogIn(new ResponseHandler() {
+//            @Override
+//            public void onResponse(Object obj) {
+//                deliveryMan = (DeliveryManProfile) obj;
+//                resp.onResponse(obj);
+//            }
+//
+//            @Override
+//            public void onError(Error error) {
+//
+//            }
+//        }, email, password);
     }
 }

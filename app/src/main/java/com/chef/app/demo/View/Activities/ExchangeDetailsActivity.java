@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.chef.app.demo.AppManager;
@@ -19,13 +21,23 @@ import java.util.List;
 public class ExchangeDetailsActivity extends AppCompatActivity {
 
     private ExchangePacketsListAdapter mAdapter;
+    private List<Exchange> exchangeList;
 
     private RecyclerView exchangeRecyclerView;
     private RecyclerView.Adapter recyclerAdapter;
     private RecyclerView.LayoutManager layoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        exchangeList = AppManager.getInstance().getDataManager().getExchangeList();
+
+        if(exchangeList == null || exchangeList.size() == 0){
+            setContentView(R.layout.error_layout);
+            return;
+        }
+
         setContentView(R.layout.activity_exchange_details);
         exchangeRecyclerView = findViewById(R.id.exchange_recycler_view);
 

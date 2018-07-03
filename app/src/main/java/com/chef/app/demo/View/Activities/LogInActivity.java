@@ -41,6 +41,7 @@ public class LogInActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnSignIn.setEnabled(false);
                 btnSignIn.setMode(ActionProcessButton.Mode.ENDLESS);
                 btnSignIn.setProgress(1);
                 AppManager.getInstance().getDataManager().requestLogIn(new ResponseHandler() {
@@ -51,7 +52,7 @@ public class LogInActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onError(Error error) {
+                    public void onError(Exception ex) {
                         Toast.makeText(LogInActivity.this, "Log In Failed", Toast.LENGTH_LONG).show();
 
                     }

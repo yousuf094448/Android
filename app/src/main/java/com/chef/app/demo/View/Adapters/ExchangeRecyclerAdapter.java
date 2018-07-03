@@ -3,6 +3,7 @@ package com.chef.app.demo.View.Adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class ExchangeRecyclerAdapter extends RecyclerView.Adapter<ExchangeRecycl
     private int resoource;
     private Context mContext;
     private List<Exchange> exchangeList;
-    ExchangePacketsListAdapter mAdapter;
+    ExchangePacketsListAdapter collectAdapter, handOverAdapter;
 
     ListView handOverList, collectionList;
 
@@ -73,22 +74,29 @@ public class ExchangeRecyclerAdapter extends RecyclerView.Adapter<ExchangeRecycl
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-//        List<Exchange.ExchangeItem> exItems = new ArrayList<>();
-//        exItems = exchangeList.get(position).getColletionList();
-//        exItems.add(new ExchangeItem());
-//        exItems.add(new ExchangeItem());
-//        exItems.add(new ExchangeItem());
-//        exItems.add(new ExchangeItem());
-        mAdapter = new ExchangePacketsListAdapter(mContext, R.layout.exchange_packets_list_item, exchangeList.get(position).getColletionList());
+        collectAdapter = new ExchangePacketsListAdapter(mContext, R.layout.exchange_packets_list_item, exchangeList.get(position).getColletionList());
+        handOverAdapter = new ExchangePacketsListAdapter(mContext, R.layout.exchange_packets_list_item, exchangeList.get(position).getHandOverList());
 
 //        LinearLayout ll = holder.layout.findViewById(R.id.exchange_row);
 //        ll.setlay
 
         collectionList = holder.layout.findViewById(R.id.collection_list);
-        collectionList.setAdapter(mAdapter);
+        collectionList.setAdapter(collectAdapter);
 
         handOverList = holder.layout.findViewById(R.id.handover_list);
-        handOverList.setAdapter(mAdapter);
+        handOverList.setAdapter(handOverAdapter);
+
+        ViewGroup.LayoutParams header = holder.layout.findViewById(R.id.exchange_item_header).getLayoutParams();
+        Log.d("LISTVIEW", "onBindViewHolder: header height = "+header.height);
+
+        ViewGroup.LayoutParams collection = holder.layout.findViewById(R.id.ll_collection_ist).getLayoutParams();
+        Log.d("LISTVIEW", "onBindViewHolder: header height = "+collection.height);
+
+        int size = exchangeList.get(position).getColletionList().size();
+        if(size<exchangeList.get(position).getHandOverList().size()) size = exchangeList.get(position).getHandOverList().size();
+        ViewGroup.LayoutParams ll = holder.layout.getLayoutParams();
+        ll.height = (header.height*2)+(30*size);
+        holder.layout.setLayoutParams(ll);
     }
 
     @Override

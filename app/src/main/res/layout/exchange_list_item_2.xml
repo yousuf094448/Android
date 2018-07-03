@@ -6,6 +6,7 @@
 
     <!--Collection List-->
     <LinearLayout
+        android:id="@+id/ll_collection_ist"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
@@ -19,7 +20,8 @@
         <ListView
             android:id="@+id/collection_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
         </ListView>
 
     </LinearLayout>
@@ -46,7 +48,8 @@
         <ListView
             android:id="@+id/handover_list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
         </ListView>
     </LinearLayout>
 </LinearLayout>

@@ -8,6 +8,7 @@ public interface DataProvider {
     public List<Delivery> getDeliveryList();
     public List<PickUp> getPickUpList();
     public List<Exchange> getExchangeList();
+    public void completePickUp(String pickUpID, ResponseHandler resp);
     public void requestAllData(ResponseHandler resp);
     public void requestLogIn(ResponseHandler resp, String email, String password);
 }

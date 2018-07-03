@@ -1,12 +1,14 @@
 package com.chef.app.demo.DataRepository.RetroWebServices;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import com.chef.app.demo.DataRepository.LogIn.LogIn;
 import com.chef.app.demo.DataRepository.Model.Contact;
 import com.chef.app.demo.DataRepository.Model.Example;
 import com.chef.app.demo.DataRepository.RetroWebServices.Delivery.RetroDeliveryListItem;
 import com.chef.app.demo.DataRepository.RetroWebServices.Delivery.RetroDelivery;
+import com.chef.app.demo.DataRepository.RetroWebServices.Error.APIError;
 import com.chef.app.demo.DataRepository.RetroWebServices.PickUp.RetroPickUpListItem;
 import com.chef.app.demo.DataRepository.RetroWebServices.PickUp.RetroPickUp;
 import com.chef.app.demo.DataRepository.Model.ProfileInfo;
@@ -96,6 +98,9 @@ public class RetroWebService implements WebService{
                 if (res.isSuccessful()) {
                     mPickUpList = res.body().getData();
                     response.onResponse(mPickUpList);
+                }else{
+                    Log.d("APIError", "onResponse: "+res.message());
+                    response.onError(new Exception(res.message()));
                 }
             }
 

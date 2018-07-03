@@ -26,7 +26,7 @@ public interface RetroWebServiceApi {
     @GET("contacts/")
     Call<Example> getMyContacts();
 
-    @GET("Delivery/GetPickUpListByDeliveryMan/{deliveryMan_id}/{date}/{page}")
+    @GET("Delivery/GetPickUpListByDeliveryMan/{deliveryMan_id}/{date}/{page}/")
     Call<RetroPickUp> getPickUpList(@Path("deliveryMan_id") String deliveryMan_id, @Path("date") String date, @Path("page") String page);
 
     @GET

@@ -18,22 +18,31 @@ public class AppManager {
     private RetroWebServiceApi api;
     private List<PickUpItem> pickUpList;
     private boolean isLoggedIn = true;
+    private AppNetworkManager netManager;
 
-    private AppManager(){
-        Log.d("APP", "AppManager: Initialization");
-        dataManager = DataManager.getInstance();
-//        dataManager = TestDataProvider.getInstance();
-    }
     public static AppManager getInstance(){
         if(obj == null) obj = new AppManager();
         return  obj;
+    }
+
+    private AppManager(){
+        Log.d("APP", "AppManager: Initialization");
+//        dataManager = DataManager.getInstance();
+        dataManager = TestDataProvider.getInstance();
+        netManager = new AppNetworkManager();
+
+    }
+
+
+    public boolean isLoggedIn() {
+        return isLoggedIn;
     }
 
     public  DataProvider getDataManager(){
         return dataManager;
     }
 
-    public boolean isLoggedIn() {
-        return isLoggedIn;
+    public AppNetworkManager getNetManager() {
+        return netManager;
     }
 }

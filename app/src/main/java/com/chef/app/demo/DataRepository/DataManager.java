@@ -53,6 +53,21 @@ public class DataManager implements DataProvider{
     }
 
     @Override
+    public void completePickUp(String pickUpID, final ResponseHandler resp) {
+        mWebService.requestDeliveryInfo(new ResponseHandler() {
+            @Override
+            public void onResponse(Object obj) {
+                resp.onResponse(obj);
+            }
+
+            @Override
+            public void onError(Exception error) {
+
+            }
+        });
+    }
+
+    @Override
     public void requestAllData(final ResponseHandler resp) {
 //        mWebService.requestProfile(new ResponseHandler() {
 //            @Override
@@ -99,11 +114,11 @@ public class DataManager implements DataProvider{
                     @Override
                     public void onResponse(Object obj) {
                         mDeliVeryList = (List<Delivery>) obj;
-                        resp.onResponse(obj);
+//                        resp.onResponse(obj);
                     }
 
                     @Override
-                    public void onError(Error error) {
+                    public void onError(Exception error) {
 
                     }
                 });
@@ -111,7 +126,8 @@ public class DataManager implements DataProvider{
             }
 
             @Override
-            public void onError(Error error) {
+            public void onError(Exception error) {
+                resp.onError(error);
 
             }
         });
@@ -129,7 +145,7 @@ public class DataManager implements DataProvider{
             }
 
             @Override
-            public void onError(Error error) {
+            public void onError(Exception error) {
 
             }
         }, email, password);

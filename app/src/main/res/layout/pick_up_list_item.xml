@@ -76,6 +76,27 @@
                     android:layout_width="19dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
+                    android:src="@drawable/ic_cooking_status" />
+                <TextView
+                    android:id="@+id/cooking_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="Cooking"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="2">
+
+                <ImageView
+                    android:layout_width="19dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/pick_up_icon" />
                 <TextView
                     android:id="@+id/pick_up_status"

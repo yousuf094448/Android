@@ -211,23 +211,25 @@
     </android.support.v7.widget.CardView>
 
 
-    <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/btnSignIn"
-        android:layout_marginTop="30dp"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:padding="10dp"
-        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        custom:cardCornerRadius="2dp">
+        <com.dd.processbutton.iml.ActionProcessButton
+            android:id="@+id/btn_pick_up_complete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Complete Pick Up"
+            custom:pb_cornerRadius="2dp"
+            android:textSize="18sp"
+            custom:pb_colorComplete="#7baf19"
+            custom:pb_colorNormal="@android:color/white"
+            custom:pb_colorPressed="@color/blue_pressed"
+            custom:pb_colorProgress="@color/purple_progress"
+            custom:pb_textComplete="Pick Up Done"
+            custom:pb_textProgress="Updating..." />
+    </android.support.v7.widget.CardView>
 
-        android:text="Complete Pick Up"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        custom:pb_cornerRadius="10dp"
-        android:textSize="18sp"
-        custom:pb_colorComplete="#7baf19"
-        custom:pb_colorNormal="@android:color/white"
-        custom:pb_colorPressed="@color/blue_pressed"
-        custom:pb_colorProgress="@color/purple_progress"
-        custom:pb_textComplete="Pick Up Done"
-        custom:pb_textProgress="Updating..." />
 </LinearLayout>
